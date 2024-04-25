@@ -1,5 +1,5 @@
-#ifndef _PACKET_H
-#define _PACKET_H
+#ifndef _LIBLIFX_PACKET_H
+#define _LIBLIFX_PACKET_H
 
 #include <stdint.h>
 
@@ -32,4 +32,4 @@
   /* variable length payload follows */
 };
 
-#endif // !_PACKET_H
+#endif // _LIBLIFX_PACKET_H
