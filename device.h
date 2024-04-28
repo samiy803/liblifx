@@ -8,6 +8,13 @@
  * Get packets
  *******************
 */
+struct __attribute__((packed)) GetService {
+    /**
+     * Packet 2
+    */
+    struct lx_packet_t header;
+};
+
 struct __attribute__((packed)) GetHostFirmware {
     /**
      * Packet 14
@@ -275,6 +282,7 @@ struct __attribute__((packed)) StateUnhandled {
  * Get packet constructors
  *******************
 */
+GetService *GetService_New(bool tagged, uint32_t source, uint8_t target[8], uint8_t sequence);
 GetHostFirmware *GetHostFirmware_New(bool tagged, uint32_t source, uint8_t target[8], uint8_t sequence);
 GetWifiInfo *GetWifiInfo_New(bool tagged, uint32_t source, uint8_t target[8], uint8_t sequence);
 GetWifiFirmware *GetWifiFirmware_New(bool tagged, uint32_t source, uint8_t target[8], uint8_t sequence);
@@ -297,36 +305,6 @@ SetLabel *SetLabel_New(bool tagged, uint32_t source, uint8_t target[8], uint8_t 
 SetReboot *SetReboot_New(bool tagged, uint32_t source, uint8_t target[8], uint8_t sequence);
 SetLocation *SetLocation_New(bool tagged, uint32_t source, uint8_t target[8], uint8_t sequence, uint8_t location[16] = 0, uint8_t label[32] = 0, uint64_t updated_at = 0);
 SetGroup *SetGroup_New(bool tagged, uint32_t source, uint8_t target[8], uint8_t sequence, uint8_t group[16] = 0, uint8_t label[32] = 0, uint64_t updated_at = 0);
-
-
-/*
- *******************
- * Get packet destructors
- *******************
-*/
-void GetHostFirmware_Delete(GetHostFirmware *get_host_firmware);
-void GetWifiInfo_Delete(GetWifiInfo *get_wifi_info);
-void GetWifiFirmware_Delete(GetWifiFirmware *get_wifi_firmware);
-void GetPower_Delete(GetPower *get_power);
-void GetLabel_Delete(GetLabel *get_label);
-void GetVersion_Delete(GetVersion *get_version);
-void GetInfo_Delete(GetInfo *get_info);
-void GetLocation_Delete(GetLocation *get_location);
-void GetGroup_Delete(GetGroup *get_group);
-void EchoRequest_Delete(EchoRequest *echo_request);
-
-
-/*
- *******************
- * Set packet destructors
- *******************
-*/
-void SetPower_Delete(SetPower *set_power);
-void SetLabel_Delete(SetLabel *set_label);
-void SetReboot_Delete(SetReboot *set_reboot);
-void SetLocation_Delete(SetLocation *set_location);
-void SetGroup_Delete(SetGroup *set_group);
-
 
 
 #endif // !_LIBLIFX_DEVICE_H

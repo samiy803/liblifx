@@ -223,32 +223,5 @@ SetInfrared *SetInfrared_New(uint32_t source, uint8_t target[8], uint8_t sequenc
 SetHevCycle *SetHevCycle_New(uint32_t source, uint8_t target[8], uint8_t sequence, uint8_t enabled, uint32_t duration_s);
 SetHevCycleConfiguration *SetHevCycleConfiguration_New(uint32_t source, uint8_t target[8], uint8_t sequence, uint8_t indication, uint32_t duration_s);
 
-/*
- *******************
- * Get packet destructors
- *******************
-*/
-void GetColor_Delete(GetColor *get_color);
-void GetLightPower_Delete(GetLightPower *get_light_power);
-void GetInfrared_Delete(GetInfrared *get_infrared);
-void GetHevCycle_Delete(GetHevCycle *get_hev_cycle);
-void GetHevCycleConfiguration_Delete(GetHevCycleConfiguration *get_hev_cycle_configuration);
-void GetLastHevCycleResult_Delete(GetLastHevCycleResult *get_last_hev_cycle_result);
-
-
-/*
- *******************
- * Set packet destructors
- *******************
-*/
-void SetColor_Delete(SetColor *set_color);
-void SetWaveform_Delete(SetWaveform *set_waveform);
-void SetLightPower_Delete(SetLightPower *set_light_power);
-void SetWaveformOptional_Delete(SetWaveformOptional *set_waveform_optional);
-void SetInfrared_Delete(SetInfrared *set_infrared);
-void SetHevCycle_Delete(SetHevCycle *set_hev_cycle);
-void SetHevCycleConfiguration_Delete(SetHevCycleConfiguration *set_hev_cycle_configuration);
-
-
 
 #endif // !_LIBLIFX_LIGHT_H
